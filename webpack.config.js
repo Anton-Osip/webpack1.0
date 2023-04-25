@@ -1,13 +1,18 @@
 const path = require('path')
 
-module.exports = {
-	mode: 'development',
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
-	entry: {
-		main: './src/index.js',
-	},
+module.exports = {
+	entry: { main: './src/index.js' },
 	output: {
-		filename: 'bundle.js',
 		path: path.resolve(__dirname, 'dist'),
+		filename: '[name].[contenthash].js',
 	},
+	plugins: [
+		new HtmlWebpackPlugin({
+			template: path.resolve(__dirname, 'src/index.html'),
+		}),
+		new CleanWebpackPlugin(),
+	],
 }
