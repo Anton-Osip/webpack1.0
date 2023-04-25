@@ -1,10 +1,9 @@
-import Person from './person'
-import './styles/styles.css'
-import './styles/style.scss'
-import web from './images/webpack.png'
+import React from 'react'
+import { createRoot } from 'react-dom/client'
 
-const Anton = new Person('Anton', 26, 'Minsk')
+const domNode = document.getElementById('root')
+const root = createRoot(domNode)
 
-console.log(Anton)
+const app = <h1>This is NEW REACT APP!!!!</h1>
 
-document.querySelector('.img').src = web
+root.render(app)
